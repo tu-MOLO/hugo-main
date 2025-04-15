@@ -3,7 +3,7 @@
 body,
 html,
 .article-content img {
-  cursor: url(../static/mouse/睡觉.png),
+  cursor: url(../mouse/睡觉.png),
   auto !important;
 }
 
@@ -12,7 +12,7 @@ a:hover,
 button:hover,
 .copyCodeButton:hover,
 #dark-mode-toggle {
-  cursor: url(../static/mouse/指针.png),
+  cursor: url(../mouse/指针.png),
   auto;
 }
 
@@ -23,6 +23,6 @@ input:hover,
 .article-content span,
 .article-content li,
 .article-content p {
-  cursor: url(../static/mouse/文本.png),
+  cursor: url(../mouse/文本.png),
   auto;
 }
