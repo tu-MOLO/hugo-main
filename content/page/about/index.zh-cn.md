@@ -7,4 +7,4 @@ menu:
             icon: user
 ---
 
-This is a test page for i18n support.
+张昊-MOLO 的静态个人网站，使用 Hugo 和 GitHub Pages服务 搭建于 2025-04-14。
