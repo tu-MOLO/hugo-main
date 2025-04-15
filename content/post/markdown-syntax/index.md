@@ -96,7 +96,7 @@ Tables aren't part of the core Markdown spec, but Hugo supports supports them ou
 >note测试
 
 ```html
-class GradeManagementSystem:
+<class GradeManagementSystem:
         更新学生课程成绩
         :param student_id: 学生学号
         :param course: 课程名称
@@ -133,7 +133,7 @@ class GradeManagementSystem:
             return student.get_all_scores()
         else:
             print(f"学号为 {student_id} 的学生不存在，无法获取所有成绩。")
-            return None
+            return None>
 ```
 
 #### Code block indented with four spaces
