@@ -1,30 +1,28 @@
-/* 默认光标图片设置，应用于body、html以及文章内容里的图片元素 */
+// 【Stack主题鼠标样式写法】
+// default光标图片
 body,
 html,
 .article-content img {
-  /* 使用指定的默认光标图片，这里假设小克猫-睡觉.ani 为默认光标，你可按需替换 */
-  cursor: url(../static/mouse/小克猫-睡觉.png),
-  auto !important; 
+  cursor: url(../static/mouse/睡觉.png),
+  auto !important;
 }
 
-/* pointer光标图片设置，应用于链接、按钮等元素的鼠标悬停状态，以及暗黑模式切换按钮 */
+// pointer光标图片
 a:hover,
 button:hover,
 .copyCodeButton:hover,
 #dark-mode-toggle {
-  /* 使用指定的指针光标图片，这里假设小克猫-摇尾巴-指针.ani 为指针光标，你可按需替换 */
-  cursor: url(../static/mouse/小克猫-摇尾巴-指针.png),
+  cursor: url(../static/mouse/指针.png),
   auto;
 }
 
-/* text光标图片设置，应用于输入框、站点描述、文章副标题、文章内容里的span、li、p等元素 */
+// text光标图片
 input:hover,
 .site-description,
 .article-subtitle,
 .article-content span,
 .article-content li,
 .article-content p {
-  /* 使用指定的文本光标图片，这里假设小克猫-摇尾巴-文本选择.ani 为文本光标，你可按需替换 */
-  cursor: url(../static/mouse/小克猫-摇尾巴-文本选择.png),
+  cursor: url(../static/mouse/文本.png),
   auto;
 }
