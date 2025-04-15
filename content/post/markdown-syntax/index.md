@@ -90,52 +90,6 @@ Tables aren't part of the core Markdown spec, but Hugo supports supports them ou
 </html>
 ```
 
-#### 测试
-
->[!NOTE]
->note测试
-
-```html
-<class GradeManagementSystem:
-        更新学生课程成绩
-        :param student_id: 学生学号
-        :param course: 课程名称
-        :param new_score: 新的课程成绩
-        """
-        student = self.get_student(student_id)
-        if student:
-            student.update_score(course, new_score)
-        else:
-            print(f"学号为 {student_id} 的学生不存在，无法更新成绩。")
-
-    def get_student_score(self, student_id, course):
-        """
-        获取学生课程成绩
-        :param student_id: 学生学号
-        :param course: 课程名称
-        :return: 课程成绩，如果学生不存在或未录入该课程成绩则返回 None
-        """
-        student = self.get_student(student_id)
-        if student:
-            return student.get_score(course)
-        else:
-            print(f"学号为 {student_id} 的学生不存在，无法获取成绩。")
-            return None
-
-    def get_student_all_scores(self, student_id):
-        """
-        获取学生所有课程成绩
-        :param student_id: 学生学号
-        :return: 包含所有课程和成绩的字典，如果学生不存在则返回 None
-        """
-        student = self.get_student(student_id)
-        if student:
-            return student.get_all_scores()
-        else:
-            print(f"学号为 {student_id} 的学生不存在，无法获取所有成绩。")
-            return None>
-```
-
 #### Code block indented with four spaces
 
     <!doctype html>
