@@ -95,7 +95,7 @@ Tables aren't part of the core Markdown spec, but Hugo supports supports them ou
 >[!NOTE]
 >note测试
 
-```pyhton
+```html
 class GradeManagementSystem:
         更新学生课程成绩
         :param student_id: 学生学号
