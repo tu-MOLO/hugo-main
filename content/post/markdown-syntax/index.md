@@ -90,6 +90,111 @@ Tables aren't part of the core Markdown spec, but Hugo supports supports them ou
 </html>
 ```
 
+#### 测试
+
+>[!NOTE]
+>note测试
+
+```pyhton
+class GradeManagementSystem:
+    def __init__(self):
+        self.students = {}  # 用于存储学生对象的字典，以学号为键
+
+    def add_student(self, student_id, name):
+        """
+        添加学生
+        :param student_id: 学生学号
+        :param name: 学生姓名
+        """
+        if student_id not in self.students:
+            self.students[student_id] = Student(student_id, name)
+            print(f"成功添加学生 {name}，学号为 {student_id}。")
+        else:
+            print(f"学号为 {student_id} 的学生已存在，无法重复添加。")
+
+    def remove_student(self, student_id):
+        """
+        删除学生
+        :param student_id: 学生学号
+        """
+        if student_id in self.students:
+            del self.students[student_id]
+            print(f"成功删除学号为 {student_id} 的学生。")
+        else:
+            print(f"学号为 {student_id} 的学生不存在，无法删除。")
+
+    def get_student(self, student_id):
+        """
+        获取学生对象
+        :param student_id: 学生学号
+        :return: 学生对象，如果不存在则返回 None
+        """
+        return self.students.get(student_id)
+
+    def list_students(self):
+        """
+        列出所有学生信息
+        """
+        if self.students:
+            for student in self.students.values():
+                print(student)
+        else:
+            print("当前没有学生信息。")
+
+    def add_student_score(self, student_id, course, score):
+        """
+        为学生添加课程成绩
+        :param student_id: 学生学号
+        :param course: 课程名称
+        :param score: 课程成绩
+        """
+        student = self.get_student(student_id)
+        if student:
+            student.add_score(course, score)
+        else:
+            print(f"学号为 {student_id} 的学生不存在，无法添加成绩。")
+
+    def update_student_score(self, student_id, course, new_score):
+        """
+        更新学生课程成绩
+        :param student_id: 学生学号
+        :param course: 课程名称
+        :param new_score: 新的课程成绩
+        """
+        student = self.get_student(student_id)
+        if student:
+            student.update_score(course, new_score)
+        else:
+            print(f"学号为 {student_id} 的学生不存在，无法更新成绩。")
+
+    def get_student_score(self, student_id, course):
+        """
+        获取学生课程成绩
+        :param student_id: 学生学号
+        :param course: 课程名称
+        :return: 课程成绩，如果学生不存在或未录入该课程成绩则返回 None
+        """
+        student = self.get_student(student_id)
+        if student:
+            return student.get_score(course)
+        else:
+            print(f"学号为 {student_id} 的学生不存在，无法获取成绩。")
+            return None
+
+    def get_student_all_scores(self, student_id):
+        """
+        获取学生所有课程成绩
+        :param student_id: 学生学号
+        :return: 包含所有课程和成绩的字典，如果学生不存在则返回 None
+        """
+        student = self.get_student(student_id)
+        if student:
+            return student.get_all_scores()
+        else:
+            print(f"学号为 {student_id} 的学生不存在，无法获取所有成绩。")
+            return None
+```
+
 #### Code block indented with four spaces
 
     <!doctype html>
