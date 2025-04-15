@@ -3,7 +3,7 @@ body,
 html,
 .article-content img {
   /* 使用指定的默认光标图片，这里假设小克猫-睡觉.ani 为默认光标，你可按需替换 */
-  cursor: url(../mouse/小克猫-睡觉.ani),
+  cursor: url(../mouse/小克猫-睡觉.png),
   auto !important; 
 }
 
@@ -13,7 +13,7 @@ button:hover,
 .copyCodeButton:hover,
 #dark-mode-toggle {
   /* 使用指定的指针光标图片，这里假设小克猫-摇尾巴-指针.ani 为指针光标，你可按需替换 */
-  cursor: url(../mouse/小克猫-摇尾巴-指针.ani),
+  cursor: url(../mouse/小克猫-摇尾巴-指针.png),
   auto;
 }
 
@@ -25,6 +25,6 @@ input:hover,
 .article-content li,
 .article-content p {
   /* 使用指定的文本光标图片，这里假设小克猫-摇尾巴-文本选择.ani 为文本光标，你可按需替换 */
-  cursor: url(../mouse/小克猫-摇尾巴-文本选择.ani),
+  cursor: url(../mouse/小克猫-摇尾巴-文本选择.png),
   auto;
 }
