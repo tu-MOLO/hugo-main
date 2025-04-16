@@ -10,7 +10,7 @@ tags = [
 categories = [
     "算法学习"
 ]
-series = ["C/C++ 算法知识连载"]
+series = ["C/C++二分查找"]
 aliases = ["c/c++二分查找"]
 image = "erfen.jpg"
 +++
