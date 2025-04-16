@@ -12,7 +12,7 @@ categories = [
 ]
 series = ["C/C++ 二分查找算法"]
 aliases = ["c/c++二分查找"]
-image = "erfen.jpg"
+image = "erfen.png"
 +++
 
 c/c++二分查找算法有关笔记。 
