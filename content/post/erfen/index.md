@@ -1,6 +1,6 @@
 +++
 author = "MOLO"
-title = "C/C++算法笔记"
+title = "C/C++二分查找算法"
 date = "2025-04-16"
 description = "c/c++二分查找"
 tags = [
@@ -10,7 +10,7 @@ tags = [
 categories = [
     "算法学习"
 ]
-series = ["C/C++二分查找"]
+series = ["C/C++ 二分查找算法"]
 aliases = ["c/c++二分查找"]
 image = "erfen.jpg"
 +++
