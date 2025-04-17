@@ -53,7 +53,7 @@ c/c++二分查找算法有关笔记。
 
 
 
-```
+```cpp
 int binarySearch(int arr\[], int n, int target) {
 
 &#x20;   int left = 0, right = n - 1;
@@ -87,7 +87,7 @@ int binarySearch(int arr\[], int n, int target) {
 
 
 
-```
+```cpp
 int binarySearchRecursive(int arr\[], int left, int right, int target) {
 
 &#x20;   if (left > right) {
@@ -121,7 +121,7 @@ int binarySearchRecursive(int arr\[], int left, int right, int target) {
 
 
 
-```
+```cpp
 int binarySearchByColor(int arr\[], int n) {
 
 &#x20;   int left = 0, right = n - 1;
@@ -177,7 +177,7 @@ int binarySearchByColor(int arr\[], int n) {
 
 
 
-```
+```cpp
 \#include \<iostream>
 
 \#include \<algorithm>
@@ -209,7 +209,7 @@ int main() {
 
 
 
-```
+```cpp
 \#include \<iostream>
 
 \#include \<algorithm>
