@@ -51,67 +51,38 @@ c/c++二分查找算法有关笔记。
 
 #### 实现方式 1：基本 while 循环实现
 
-
-
 ```cpp
-int binarySearch(int arr\[], int n, int target) {
-
-&#x20;   int left = 0, right = n - 1;
-
-&#x20;   while (left <= right) {
-
-&#x20;       int mid = left + (right - left) / 2;
-
-&#x20;       if (arr\[mid] == target) {
-
-&#x20;           return mid;
-
-&#x20;       } else if (arr\[mid] < target) {
-
-&#x20;           left = mid + 1;
-
-&#x20;       } else {
-
-&#x20;           right = mid - 1;
-
-&#x20;       }
-
-&#x20;   }
-
-&#x20;   return -1; // 未找到目标值
-
+int binarySearch(int arr[], int n, int target) {
+    int left = 0, right = n - 1;
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+        if (arr[mid] == target) {
+            return mid;
+        } else if (arr[mid] < target) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+    return -1; // 未找到目标值
 }
 ```
 
 #### 实现方式 2：递归实现
 
-
-
 ```cpp
-int binarySearchRecursive(int arr\[], int left, int right, int target) {
-
-&#x20;   if (left > right) {
-
-&#x20;       return -1; // 未找到目标值
-
-&#x20;   }
-
-&#x20;   int mid = left + (right - left) / 2;
-
-&#x20;   if (arr\[mid] == target) {
-
-&#x20;       return mid;
-
-&#x20;   } else if (arr\[mid] < target) {
-
-&#x20;       return binarySearchRecursive(arr, mid + 1, right, target);
-
-&#x20;   } else {
-
-&#x20;       return binarySearchRecursive(arr, left, mid - 1, target);
-
-&#x20;   }
-
+int binarySearchRecursive(int arr[], int left, int right, int target) {
+    if (left > right) {
+        return -1; // 未找到目标值
+    }
+    int mid = left + (right - left) / 2;
+    if (arr[mid] == target) {
+        return mid;
+    } else if (arr[mid] < target) {
+        return binarySearchRecursive(arr, mid + 1, right, target);
+    } else {
+        return binarySearchRecursive(arr, left, mid - 1, target);
+    }
 }
 ```
 
@@ -119,31 +90,18 @@ int binarySearchRecursive(int arr\[], int left, int right, int target) {
 
 红蓝染色法是一种更形象化理解二分的方式。假设数组中的元素可分为 “红”（不满足条件）和 “蓝”（满足条件）两类，且红元素都在蓝元素左侧（或右侧）。通过二分不断调整边界，找到红蓝元素的分界点。以查找满足某条件的最小元素为例：
 
-
-
 ```cpp
-int binarySearchByColor(int arr\[], int n) {
-
-&#x20;   int left = 0, right = n - 1;
-
-&#x20;   while (left < right) {
-
-&#x20;       int mid = left + (right - left) / 2;
-
-&#x20;       if (isBlue(arr\[mid])) {  // isBlue函数判断元素是否满足条件（蓝色）
-
-&#x20;           right = mid;
-
-&#x20;       } else {
-
-&#x20;           left = mid + 1;
-
-&#x20;       }
-
-&#x20;   }
-
-&#x20;   return left;  // 返回满足条件的最小索引
-
+int binarySearchByColor(int arr[], int n) {
+    int left = 0, right = n - 1;
+    while (left < right) {
+        int mid = left + (right - left) / 2;
+        if (isBlue(arr[mid])) {  // isBlue函数判断元素是否满足条件（蓝色）
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return left;  // 返回满足条件的最小索引
 }
 ```
 
@@ -171,65 +129,43 @@ int binarySearchByColor(int arr\[], int n) {
 
 相关二分查找函数定义在`<algorithm>`头文件中，使用时需包含此头文件。
 
-### std::lower\_bound
+### std::lower_bound
 
 `std::lower_bound(begin, end, value)`函数用于在有序范围`[begin, end)`内查找第一个大于或等于`value`的元素的位置。返回一个迭代器指向该位置。例如：
 
-
-
 ```cpp
-\#include \<iostream>
-
-\#include \<algorithm>
-
-\#include \<vector>
+#include <iostream>
+#include <algorithm>
+#include <vector>
 
 int main() {
-
-&#x20;   std::vector\<int> v = {1, 3, 5, 7, 9};
-
-&#x20;   auto it = std::lower\_bound(v.begin(), v.end(), 4);
-
-&#x20;   if (it != v.end()) {
-
-&#x20;       std::cout << "第一个大于或等于4的元素是: " << \*it << std::endl;
-
-&#x20;   }
-
-&#x20;   return 0;
-
+    std::vector<int> v = {1, 3, 5, 7, 9};
+    auto it = std::lower_bound(v.begin(), v.end(), 4);
+    if (it != v.end()) {
+        std::cout << "第一个大于或等于4的元素是: " << *it << std::endl;
+    }
+    return 0;
 }
 ```
 
 上述代码中，`std::lower_bound`返回指向元素`5`的迭代器。
 
-### std::upper\_bound
+### std::upper_bound
 
 `std::upper_bound(begin, end, value)`函数用于在有序范围`[begin, end)`内查找第一个大于`value`的元素的位置。同样返回一个迭代器指向该位置。例如：
 
-
-
 ```cpp
-\#include \<iostream>
-
-\#include \<algorithm>
-
-\#include \<vector>
+#include <iostream>
+#include <algorithm>
+#include <vector>
 
 int main() {
-
-&#x20;   std::vector\<int> v = {1, 3, 5, 7, 9};
-
-&#x20;   auto it = std::upper\_bound(v.begin(), v.end(), 4);
-
-&#x20;   if (it != v.end()) {
-
-&#x20;       std::cout << "第一个大于4的元素是: " << \*it << std::endl;
-
-&#x20;   }
-
-&#x20;   return 0;
-
+    std::vector<int> v = {1, 3, 5, 7, 9};
+    auto it = std::upper_bound(v.begin(), v.end(), 4);
+    if (it != v.end()) {
+        std::cout << "第一个大于4的元素是: " << *it << std::endl;
+    }
+    return 0;
 }
 ```
 
