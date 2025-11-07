@@ -35,6 +35,30 @@
   margin-bottom: 10px;
 }
 
+/* 主页搜索组件样式 */
+.home-search {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background-color: var(--card-background);
+  border-radius: var(--card-border-radius);
+  box-shadow: var(--shadow-l1);
+  transition: box-shadow 0.3s ease;
+}
+
+.home-search:hover {
+  box-shadow: var(--shadow-l2);
+}
+
+.home-search .search-form {
+  max-width: 100%;
+}
+
+.home-search .search-form input {
+  font-size: 1.6rem;
+  padding: 35px 20px 15px 20px;
+  border-radius: var(--card-border-radius);
+}
+
 [data-scheme="light"] {
   .alert-note {
     --card-separator-color: #65bbee;
