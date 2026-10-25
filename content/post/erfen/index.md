@@ -1,6 +1,7 @@
 +++
 author = "MOLO"
 title = "C/C++二分查找算法"
+slug = "erfen-chazhao"
 date = "2025-04-16"
 description = "c/c++二分查找"
 tags = [
@@ -11,7 +12,7 @@ categories = [
     "算法学习"
 ]
 series = ["C/C++ 二分查找算法"]
-aliases = ["c/c++二分查找"]
+aliases = ["/p/c/c-二分查找算法/"]
 image = "erfen.png"
 +++
 

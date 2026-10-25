@@ -1,8 +1,8 @@
 baseurl: https://tu-molo.github.io/
 languageCode: en-us
 theme: hugo-theme-stack
-title: Example Site
-copyright: Example Person
+title: 张昊-MOLO
+copyright: MOLO
 
 # Theme i18n support
 # Available values: ar, bn, ca, de, el, en, es, fr, hu, id, it, ja, ko, nl, pt-br, th, uk, zh-cn, zh-hk, zh-tw
@@ -60,7 +60,7 @@ params:
             src: img/avatar.png
 
     article:
-        math: false
+        math: true
         toc: true
         readingTime: false
         license:
@@ -201,12 +201,6 @@ menu:
           url: https://github.com/tu-MOLO
           params:
               icon: brand-github
-
-        - identifier: twitter
-          name: Twitter
-          url: https://twitter.com
-          params:
-              icon: brand-twitter
 
 related:
     includeNewer: true

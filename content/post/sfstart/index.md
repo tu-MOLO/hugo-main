@@ -1,6 +1,7 @@
 +++
 author = "MOLO"
 title = "C/C++算法笔记"
+slug = "suanfa-biji"
 date = "2025-04-15"
 description = "正式开启 C/C++ 算法笔记的连载记录！"
 tags = [
@@ -11,7 +12,7 @@ categories = [
     "算法学习"
 ]
 series = ["C/C++ 算法知识连载"]
-aliases = ["c/c++算法笔记开篇"]
+aliases = ["/p/c/c-算法笔记/"]
 image = "suanfa.jpg"
 +++
 

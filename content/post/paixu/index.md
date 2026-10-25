@@ -1,6 +1,7 @@
 +++
 author = "MOLO"
 title = "C/C++排序算法"
+slug = "paixu-suanfa"
 date = "2025-04-19"
 description = "c/c++排序算法"
 tags = [
@@ -11,7 +12,7 @@ categories = [
     "算法学习"
 ]
 series = ["C/C++ 排序算法"]
-aliases = ["c/c++排序算法"]
+aliases = ["/p/c/c-排序算法/"]
 image = "px.png"
 +++
 
