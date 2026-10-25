@@ -1,0 +1,153 @@
++++
+author = "MOLO"
+title = "如何给这个博客写一篇文章"
+slug = "how-to-write"
+date = "2026-10-25"
+description = "这站点的写作约定：文件放哪、front matter 怎么填、slug 的规矩，以及本地预览与发布流程。"
+tags = [
+    "教程",
+    "Hugo"
+]
+categories = [
+    "站点维护"
+]
+series = ["博客使用说明"]
++++
+
+这篇是本站唯一保留的“元文章”，记录我怎么往这里写东西。以后翻回来照着抄就行。
+
+<!--more-->
+
+## 一、文章放在哪
+
+每篇文章是 `content/post/` 下的一个**独立文件夹**，里面放正文和它用到的图片：
+
+```text
+content/post/
+└── how-to-write/
+    ├── index.md      # 正文，文件名固定叫 index.md
+    └── cover.png     # 可选：配图，和正文同级引用
+```
+
+用文件夹而不是单个 `.md`，好处是图片跟着文章走，路径永远不会错。
+
+## 二、front matter 怎么写
+
+本站统一用 TOML（`+++` 包裹），模板如下：
+
+```toml
++++
+author = "MOLO"
+title = "文章标题"
+slug = "my-post"                # 必填，见第三节
+date = "2026-10-25"
+description = "一句话摘要，会用在卡片和搜索结果里"
+tags = ["标签一", "标签二"]
+categories = ["分类名"]
+series = ["系列名"]             # 可选
+image = "cover.png"             # 可选，同目录图片
+draft = false
++++
+```
+
+各个字段的作用：
+
+| 字段 | 说明 |
+|---|---|
+| `title` | 文章标题，显示在卡片和详情页 |
+| `slug` | URL 片段，决定最终地址 |
+| `date` | 发布日，卡片按它倒序 |
+| `description` | 摘要，出现在列表卡片与搜索结果 |
+| `tags` | 标签，右侧边栏可点进去筛选 |
+| `categories` | 分类，每个分类可单独配封面和配色 |
+| `image` | 封面图，不写也能正常显示 |
+| `draft` | `true` 时只在 `-D` 模式下可见 |
+
+## 三、slug 的规矩（重点）
+
+文章地址由 [hugo.yaml](https://github.com/tu-MOLO/hugo-main/blob/main/hugo.yaml) 里的 `permalinks` 决定：
+
+```yaml
+permalinks:
+    post: /p/:slug/
+    page: /:slug/
+```
+
+也就是说地址是 `https://tu-molo.github.io/p/<slug>/`。
+
+> 一定要手写 `slug`，并且只用**小写字母、数字和连字符**。
+> 如果不写，Hugo 会用中文标题生成路径，标题里带 `/` 或 `++` 时还会被转义成 `c/c-...` 这种奇怪的多层路径——这个博客之前就踩过这个坑。
+
+## 四、正文的几个约定
+
+### 摘要分隔
+
+正文里插入 `<!--more-->`，它前面的内容会作为列表页的摘要，后面的进正文：
+
+```markdown
+这里是摘要，会出现在首页卡片上。
+
+<!--more-->
+
+这里是正文。
+```
+
+### 图片
+
+图片放在文章文件夹里，用相对路径引用：
+
+```markdown
+![图片说明](cover.png)
+```
+
+主题会自动生成多尺寸响应式图片，不需要手动压缩。
+
+### 数学公式
+
+站点已全局开启 KaTeX，直接写 LaTeX 即可：
+
+- 行内：`$O(\log n)$` → $O(\log n)$
+- 独立公式：`$$ ... $$`
+
+### 提示块
+
+主题支持 GitHub 风格的提示框：
+
+```markdown
+> [!NOTE]
+> 提示内容
+```
+
+## 五、新建文章的完整步骤
+
+```powershell
+cd d:\Projects\Molo-hugo-blog\hugo-main
+New-Item -ItemType Directory -Force content\post\my-post
+D:\Software\hugo\hugo.exe new content/post/my-post/index.md
+```
+
+然后填好 front matter，写正文，本地预览：
+
+```powershell
+D:\Software\hugo\hugo.exe server -D
+```
+
+打开 http://localhost:1313 边写边看，改文件会自动刷新。
+
+## 六、发布
+
+确认没问题后推送到 GitHub：
+
+```powershell
+git add .
+git commit -m "post: 新文章标题"
+git push origin main
+```
+
+站点由 `tu-MOLO/tu-MOLO.github.io` 仓库的 `pages` workflow 构建发布：它会自动拉取 `hugo-main` 的源码、用固定版本的 Hugo 构建并部署。
+
+推送后可以去 [Actions](https://github.com/tu-MOLO/tu-MOLO.github.io/actions) 点一次 **Run workflow** 立即发布；不点的话，每天北京时间 02:00 会自动构建一次。
+
+---
+
+按上面这套流程走，就不用再回头折腾配置了。
